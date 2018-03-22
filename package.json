@@ -1,0 +1,22 @@
+{
+  "name": "reveal.js-trianglify",
+  "version": "0.1.0",
+  "description": "A Reveal.js plugin to algorithmically generate triangle art slide backgrounds",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denehyg/reveal.js-trianglify.git"
+  },
+  "keywords": [
+    "reveal",
+    "trianglify"
+  ],
+  "author": "Greg Denehy",
+  "license": "GPLv3, Copyright (C) 2018 Greg Denehy",
+  "bugs": {
+    "url": "https://github.com/denehyg/reveal.js-trianglify/issues"
+  },
+  "homepage": "https://github.com/denehyg/reveal.js-trianglify#readme"
+}

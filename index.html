@@ -32,13 +32,13 @@
 			}
 
 			.reveal .controls,
-			.reveal a {
+			.reveal .slide-menu-button a {
 				color: #000000;
 			}
 
-			.reveal a {
-				color: #000000;
-			    text-decoration: underline grey;
+			.reveal a:hover {
+				text-decoration: underline;
+				color: #2a76dd;
 			}
 
 			#option-diagrams {
@@ -53,6 +53,10 @@
 				margin-bottom: 2rem;
 			}
 
+			#option-diagrams figure svg {
+				overflow: hidden;
+			}
+
 			.examples figure {
 				float: left;
 				width: 25%;
@@ -64,7 +68,11 @@
 				width: 33%;
 			}
 
-			.examples figure svg {
+			.reveal .examples figure svg {
+				overflow: hidden;
+			}
+
+			.reveal:not(.ie) .examples figure svg {
 				border-radius: 60px;
 			}
 
@@ -265,7 +273,7 @@
 					{ src: 'lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'lib/reveal.js/plugin/notes/notes.js', async: true },
 					{ src: 'lib/reveal.js-menu/menu.js', async: true },
-					{ src: 'plugin.js', async: true },
+					{ src: '/plugin.js', async: true },
 				]
 			});
 
@@ -318,6 +326,10 @@
 					RevealMenu.openPanel("Custom0");
 				};
 			});
+
+			if (head.browser.ie) {
+				document.querySelector('.reveal').classList.add('ie');
+			}
 		</script>
 
 	</body>

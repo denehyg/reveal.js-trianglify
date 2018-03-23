@@ -135,4 +135,4 @@ reveal.js-trianglify is GPLv3 licensed.
 
 Copyright (C) 2018 Greg Denehy
 
-The Trianglify library is copyright (C) Quinn Rohlf
+The [Trianglify](https://github.com/qrohlf/trianglify) library is copyright (C) Quinn Rohlf

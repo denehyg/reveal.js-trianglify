@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js-trianglify – triangle art slide backgrounds</title>
+
+		<meta name="description" content="A Reveal.js plugin to algorithmically generate triangle art slide backgrounds.">
+		<meta name="author" content="Greg Denehy">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="lib/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="lib/reveal.js/css/theme/white.css" id="theme">
+		<link rel="stylesheet" href="lib/reveal.js/lib/css/zenburn.css">
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+		<style>
+			.reveal,
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6  {
+				font-family: 'Open Sans', sans-serif;
+			}
+
+			.reveal .controls,
+			.reveal a {
+				color: #000000;
+			}
+
+			.reveal a {
+				color: #000000;
+			    text-decoration: underline grey;
+			}
+
+			#option-diagrams {
+				height: 200px;
+				background-color: white;
+				padding: 30px 10px 80px 10px;
+			}
+
+			#option-diagrams figure {
+				float: left;
+				width: 33%;
+				margin-bottom: 2rem;
+			}
+
+			.examples figure {
+				float: left;
+				width: 25%;
+				margin-bottom: 2rem;
+			}
+
+			#examples1 figure,
+			#examples3 figure {
+				width: 33%;
+			}
+
+			.examples figure svg {
+				border-radius: 60px;
+			}
+
+			.examples figure figcaption {
+				font-size: 16px;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/reveal.js/css/print/pdf.css' : 'lib/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>reveal.js-trianglify</h2>
+					<h4>Algorithmically generated triangle art backgrounds for Reveal.js</h4>
+					<p>
+						<small>Created by <a href="https://github.com/denehyg">Greg Denehy</a> / <a href="http://twitter.com/gregdenehy">@gregdenehy</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Options</h2>
+						<br/>
+						<div id="option-diagrams">
+							<a href="#/colors"><figure id="color-diagram"><figcaption>Color</figcaption></figure></a>
+							<a href="#/cell-size"><figure id="size-diagram"><figcaption>Size</figcaption></figure></a>
+							<a href="#/variance"><figure id="variance-diagram"><figcaption>Variance</figcaption></figure></a>
+						</div>
+					</section>
+
+					<section>
+						<p>
+							You can add a background <br/>to individual slides by adding
+							the <br/><code>data-trianglify</code><br/> attribute to the slide section
+						</p>
+						<pre><code class="html" data-trim style="font-size: 18px;">
+							&lt;section data-trianglify data-trianglify-xColors="BrBG"&gt;
+								...
+							&lt;/section&gt;
+						</code></pre>
+					</section>
+
+					<section>
+						<p>You can add a common background<br/>for all the slides in the presentation</p>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
+							Reveal.initialize({
+								trianglify: {
+									cellSize: 75,
+									xColors: 'random',
+									variance: 0.75
+								},
+							});
+						</code></pre>
+					</section>
+
+					<section>
+						<p>Or you can set defaults used by slide <br/>backgrounds and hide the common <br/>background using the option <br/><code>displayAsTheme: false</code></p>
+						<pre><code class="javascript" data-trim style="font-size: 18px;">
+							Reveal.initialize({
+								trianglify: {
+									cellSize: 140,
+									variance: 0.5,
+									displayAsTheme: false
+								},
+							});
+						</code></pre>
+					</section>
+	
+	
+				</section>
+	
+				<section>
+					<section id="colors" data-trianglify data-trianglify-xColors="BrBG" data-trianglify-cellSize="175">
+						<h2>Colors</h2>
+						<p>Choose from a range of color presets, a random preset, or specify a custom color profile</p>
+
+						<br/>
+						<p>Presets...</p>
+						<p style="font-size: 1.4em"><a href="#/color-examples"><i class="fas fa-chevron-down"></i></a></p>
+					</section>
+
+					<section data-trianglify data-trianglify-xColors="Greys" data-trianglify-cellSize="75" id="color-examples">
+						<h2>Presets</h2>
+						<div id="examples1" class="examples"></div>
+					</section>
+		
+					<section data-trianglify data-trianglify-xColors="Greys" data-trianglify-cellSize="175">
+						<h2>Presets</h2>
+						<div id="examples2" class="examples"></div>
+					</section>
+		
+					<section data-trianglify data-trianglify-xColors="Greys">
+						<h2>Presets</h2>
+						<div id="examples3" class="examples"></div>
+					</section>
+				</section>
+	
+				<section>
+					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="75" id="cell-size">
+						<h2>Cell size</h2>
+						<p>You can change the size of the triangles</p>
+						<br/>
+						<h4>Default: 75</h4>
+						<br/>
+						<p>more examples...</p>
+						<p style="font-size: 1.4em"><a href="#/cell-size-examples"><i class="fas fa-chevron-down"></i></a></p>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="30" id="cell-size-examples">
+						<h4>Cell size: 30</h4>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="120">
+						<h4>Cell size: 120</h4>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="240">
+						<h4>Cell size: 240</h4>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="480">
+						<h4>Cell size: 480</h4>
+					</section>
+				</section>
+
+				<section>
+					<section data-trianglify data-trianglify-xColors="Greens" data-trianglify-cellSize="125" id="variance">
+						<h2>Variance</h2>
+						<p>You can change the randomness used<br/>when generating triangles</p>
+						<br/>
+						<h4>Default: 0.75</h4>
+						<br/>
+						<p>more examples...</p>
+						<p style="font-size: 1.4em"><a href="#/variance-examples"><i class="fas fa-chevron-down"></i></a></p>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Greens" data-trianglify-cellSize="125" data-trianglify-variance="1.0" id="variance-examples">
+						<h4>Variance: 1.0</h4>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Greens" data-trianglify-cellSize="125" data-trianglify-variance="0.5">
+						<h4>Variance: 0.5</h4>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Greens" data-trianglify-cellSize="125" data-trianglify-variance="0.25">
+						<h4>Variance: 0.25</h4>
+					</section>
+					<section data-trianglify data-trianglify-xColors="Greens" data-trianglify-cellSize="125" data-trianglify-variance="0.0">
+						<h4>Variance: 0.0</h4>
+					</section>
+				</section>
+
+				<section data-menu-title="Download">
+					<p><a href="#" id="infolink">Download</a> reveal.js-trianglify and<br/> add to your plugin folder</p>
+					<p><a href="https://github.com/denehyg/reveal.js-trianglify/blob/master/README.md">Read the docs</a> for more info</p>
+					<p>And don't forget to check out <br/><a href="https://github.com/hakimel/reveal.js">Reveal.js</a></p>
+				</section>
+	
+			</div>
+		</div>
+
+		<script src="lib/reveal.js/lib/js/head.min.js"></script>
+		<script src="lib/reveal.js/js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: false,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'fade',
+
+				menu: {
+					custom: [
+						{ title: 'GitHub', icon: '<i class="fab fa-github">', src: 'links.html' }
+					],
+				},
+
+				trianglify: {
+					cellSize: 55,
+					xColors: 'RdBu'
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'lib/reveal.js-menu/menu.js', async: true },
+					{ src: 'plugin.js', async: true },
+				]
+			});
+
+			var presentation = document.querySelector('.reveal');
+			presentation.addEventListener('trianglify-ready', function() {
+				function generateDiagram(parent, cell_size, x_colors, variance) {
+					var pattern = Trianglify({
+						width: 280,
+						height: 190,
+						cell_size: cell_size,
+						x_colors: x_colors,
+						variance: variance
+					});
+					parent.insertBefore(pattern.svg(), parent.firstChild)
+				}
+
+				generateDiagram(document.querySelector('#color-diagram'), 30, 'PRGn', 0.75);
+				generateDiagram(document.querySelector('#size-diagram'), 70, 'RdBu', 0.75);
+				generateDiagram(document.querySelector('#variance-diagram'), 30, 'RdBu', 0.20);
+
+				function generateExamples(parent, colors) {
+					colors.forEach(function(color) {
+						var card = document.createElement('figure');
+						var pattern = Trianglify({
+							width: 120,
+							height: 120,
+							cell_size: 16,
+							x_colors: color
+						});
+						card.appendChild(pattern.svg());
+
+						var label = document.createElement('figcaption');
+						label.textContent = color;
+						card.appendChild(label);
+
+						parent.appendChild(card);
+					});
+				};
+
+				generateExamples(document.querySelector('#examples1'), ['Blues', 'Purples', 'Reds', 'Greens', 'Oranges', 'Greys']);
+				generateExamples(document.querySelector('#examples2'), ['BuGn', 'YlGn', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuPu', 'YlOrBr', 'PuRd', 'RdPu', 'OrRd', 'YlOrRd']);
+				generateExamples(document.querySelector('#examples3'), ['Spectral', 'PuOr', 'RdBu', 'PRGn', 'RdGy', 'PiYG', 'RdYlBu', 'RdYlGn', 'BrBG']);
+
+			} );
+
+			presentation.addEventListener('menu-ready', function() {
+				var link = document.querySelector('#infolink');
+				link.onclick = function(e) {
+					e.preventDefault();
+					RevealMenu.openPanel("Custom0");
+				};
+			});
+		</script>
+
+	</body>
+</html>

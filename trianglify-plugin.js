@@ -166,11 +166,11 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 		// obtain plugin path from the script element
 		var path;
 		if (document.currentScript) {
-			path = document.currentScript.src.slice(0, -9);
+			path = document.currentScript.src.slice(0, -20);
 		} else {
-			var sel = document.querySelector('script[src$="/plugin.js"]')
+			var sel = document.querySelector('script[src$="trianglify-plugin.js"]')
 			if (sel) {
-				path = sel.src.slice(0, -9);
+				path = sel.src.slice(0, -20);
 			}
 		}
 		return path;

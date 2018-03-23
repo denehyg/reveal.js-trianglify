@@ -29,8 +29,8 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 	});
 	
 	function loadPlugin() {
-		// does not support IE8 or below
-		if (!head.browser.ie || head.browser.version >= 9) {
+		// does not support IE9 or below
+		if (!ieVersion || ieVersion >= 10) {
 			function option(opt, def) {
 				if (typeof opt === "undefined") return def;
 				return opt;
@@ -118,6 +118,9 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 
 			dispatchEvent('trianglify-ready');
 		}
+		else {
+			console.log("Error: reveal.js-trianglify does not support IE version 9 or below");
+		}
 	};
 
 	// modified from math plugin
@@ -173,5 +176,13 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 		return path;
 	}
 
+	var ieVersion = function() {
+		var browser = /(msie) ([\w.]+)/.exec(window.navigator.userAgent.toLowerCase());
+		if (browser && browser[1] === "msie") {
+			return parseFloat(browser[2]);
+		}
+		return null;
+	}();
+	
 	return {}; // API
 })();

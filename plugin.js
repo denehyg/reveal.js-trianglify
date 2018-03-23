@@ -73,12 +73,12 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 	
 				// individual slide backgrounds
 				Reveal.getSlides().forEach(function(slide) {
-					if (slide.hasAttribute('data-background-trianglify')) {
+					if (slide.hasAttribute('data-trianglify')) {
 						generateBackground(slide.slideBackgroundElement, {
-							cell_size: slide.hasAttribute('data-background-trianglify-cellSize') ? parseInt(slide.getAttribute('data-background-trianglify-cellSize')) : cellSize,
-							x_colors: slide.hasAttribute('data-background-trianglify-xColors') ? slide.getAttribute('data-background-trianglify-xColors') : xColors,
-							y_colors: slide.hasAttribute('data-background-trianglify-yColors') ? slide.getAttribute('data-background-trianglify-yColors') : yColors,
-							variance: slide.hasAttribute('data-background-trianglify-variance') ? slide.getAttribute('data-background-trianglify-variance') : variance
+							cell_size: slide.hasAttribute('data-trianglify-cellSize') ? parseInt(slide.getAttribute('data-trianglify-cellSize')) : cellSize,
+							x_colors: slide.hasAttribute('data-trianglify-xColors') ? slide.getAttribute('data-trianglify-xColors') : xColors,
+							y_colors: slide.hasAttribute('data-trianglify-yColors') ? slide.getAttribute('data-trianglify-yColors') : yColors,
+							variance: slide.hasAttribute('data-trianglify-variance') ? slide.getAttribute('data-trianglify-variance') : variance
 						});
 					}
 				});

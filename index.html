@@ -104,23 +104,23 @@
 				<section>
 					<h2>reveal.js-trianglify</h2>
 					<h4>Algorithmically generated triangle art backgrounds for Reveal.js</h4>
-					<p>
-						<small>Created by <a href="https://github.com/denehyg">Greg Denehy</a> / <a href="http://twitter.com/gregdenehy">@gregdenehy</a></small>
-					</p>
+					<p><small>Created by <a href="https://github.com/denehyg">Greg Denehy</a> / <a href="http://twitter.com/gregdenehy">@gregdenehy</a></small></p>
+					<p style="font-size: 0.8em"><small>Built with <a href="https://github.com/qrohlf/trianglify">Trianglify</a></small></p>
 				</section>
 
 				<section>
 					<section>
 						<h2>Options</h2>
-						<br/>
 						<div id="option-diagrams">
 							<a href="#/colors"><figure id="color-diagram"><figcaption>Color</figcaption></figure></a>
 							<a href="#/cell-size"><figure id="size-diagram"><figcaption>Size</figcaption></figure></a>
 							<a href="#/variance"><figure id="variance-diagram"><figcaption>Variance</figcaption></figure></a>
 						</div>
+						<br/>
+						<p><a href="#/config-details">Configuration<br/><i class="fas fa-chevron-down" style="font-size: 1.4em"></i></a></p>
 					</section>
 
-					<section>
+					<section data-menu-title="Add to individual slide" id="config-details">
 						<p>
 							You can add a background <br/>to individual slides by adding
 							the <br/><code>data-trianglify</code><br/> attribute to the slide section
@@ -132,7 +132,7 @@
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-menu-title="Add to presentation">
 						<p>You can add a common background<br/>for all the slides in the presentation</p>
 						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							Reveal.initialize({
@@ -145,7 +145,7 @@
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-menu-title="Set defaults">
 						<p>Or you can set defaults used by slide <br/>backgrounds and hide the common <br/>background using the option <br/><code>displayAsTheme: false</code></p>
 						<pre><code class="javascript" data-trim style="font-size: 18px;">
 							Reveal.initialize({
@@ -165,48 +165,46 @@
 					<section id="colors" data-trianglify data-trianglify-xColors="BrBG" data-trianglify-cellSize="175">
 						<h2>Colors</h2>
 						<p>Choose from a range of color presets, a random preset, or specify a custom color profile</p>
-
 						<br/>
-						<p>Presets...</p>
-						<p style="font-size: 1.4em"><a href="#/color-examples"><i class="fas fa-chevron-down"></i></a></p>
+						<p><a href="#/color-examples">Presets<br/><i class="fas fa-chevron-down" style="font-size: 1.4em"></i></a></p>
 					</section>
 
-					<section data-trianglify data-trianglify-xColors="Greys" data-trianglify-cellSize="75" id="color-examples">
+					<section data-trianglify data-trianglify-xColors="Greys" data-trianglify-cellSize="75" data-menu-title="Presets 1" id="color-examples">
 						<h2>Presets</h2>
+						<br>
 						<div id="examples1" class="examples"></div>
 					</section>
 		
-					<section data-trianglify data-trianglify-xColors="Greys" data-trianglify-cellSize="175">
+					<section data-trianglify data-trianglify-xColors="Greys" data-trianglify-cellSize="175" data-menu-title="Presets 2">
 						<h2>Presets</h2>
 						<div id="examples2" class="examples"></div>
 					</section>
 		
-					<section data-trianglify data-trianglify-xColors="Greys">
+					<section data-trianglify data-trianglify-xColors="Greys" data-menu-title="Presets 3">
 						<h2>Presets</h2>
 						<div id="examples3" class="examples"></div>
 					</section>
 				</section>
 	
 				<section>
-					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="75" id="cell-size">
+					<section data-trianglify data-trianglify-xColors="OrRd" data-trianglify-cellSize="75" id="cell-size">
 						<h2>Cell size</h2>
 						<p>You can change the size of the triangles</p>
 						<br/>
 						<h4>Default: 75</h4>
 						<br/>
-						<p>more examples...</p>
-						<p style="font-size: 1.4em"><a href="#/cell-size-examples"><i class="fas fa-chevron-down"></i></a></p>
+						<p><a href="#/cell-size-examples">More examples<br/><i class="fas fa-chevron-down" style="font-size: 1.4em"></i></a></p>
 					</section>
-					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="30" id="cell-size-examples">
+					<section data-trianglify data-trianglify-xColors="OrRd" data-trianglify-cellSize="30" id="cell-size-examples">
 						<h4>Cell size: 30</h4>
 					</section>
-					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="120">
+					<section data-trianglify data-trianglify-xColors="OrRd" data-trianglify-cellSize="120">
 						<h4>Cell size: 120</h4>
 					</section>
-					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="240">
+					<section data-trianglify data-trianglify-xColors="OrRd" data-trianglify-cellSize="240">
 						<h4>Cell size: 240</h4>
 					</section>
-					<section data-trianglify data-trianglify-xColors="Blues" data-trianglify-cellSize="480">
+					<section data-trianglify data-trianglify-xColors="OrRd" data-trianglify-cellSize="480">
 						<h4>Cell size: 480</h4>
 					</section>
 				</section>
@@ -218,8 +216,7 @@
 						<br/>
 						<h4>Default: 0.75</h4>
 						<br/>
-						<p>more examples...</p>
-						<p style="font-size: 1.4em"><a href="#/variance-examples"><i class="fas fa-chevron-down"></i></a></p>
+						<p><a href="#/variance-examples">More examples<br/><i class="fas fa-chevron-down" style="font-size: 1.4em"></i></a></p>
 					</section>
 					<section data-trianglify data-trianglify-xColors="Greens" data-trianglify-cellSize="125" data-trianglify-variance="1.0" id="variance-examples">
 						<h4>Variance: 1.0</h4>
@@ -235,10 +232,14 @@
 					</section>
 				</section>
 
-				<section data-menu-title="Download">
+				<section data-menu-title="Get reveal.js-trianglify!">
 					<p><a href="#" id="infolink">Download</a> reveal.js-trianglify and<br/> add to your plugin folder</p>
 					<p><a href="https://github.com/denehyg/reveal.js-trianglify/blob/master/README.md">Read the docs</a> for more info</p>
 					<p>And don't forget to check out <br/><a href="https://github.com/hakimel/reveal.js">Reveal.js</a></p>
+					<br/>
+					<br/>
+					<p><small>Credit to Quinn Rohlf for the <a href="https://github.com/qrohlf/trianglify">Trianglify</a> library</small></p>
+
 				</section>
 	
 			</div>
@@ -259,7 +260,7 @@
 
 				menu: {
 					custom: [
-						{ title: 'GitHub', icon: '<i class="fab fa-github">', src: 'links.html' }
+						{ title: 'Downloads', icon: '<i class="fab fa-github">', src: 'links.html' }
 					],
 				},
 

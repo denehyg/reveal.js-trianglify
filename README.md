@@ -2,6 +2,9 @@
 
 A [Reveal.js](https://github.com/hakimel/reveal.js) plugin to algorithmically generate triangle art slide backgrounds. [Check out the live demo](https://denehyg.github.io/reveal.js-trianglify)
 
+[![reveal.js-trianglify](screenshot.png)](https://denehyg.github.io/reveal.js-trianglify)
+
+
 ## Installation
 
 ### Bower

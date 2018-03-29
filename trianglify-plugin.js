@@ -20,6 +20,9 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 	var config = Reveal.getConfig();
 	var options = config.trianglify || {};
 	options.path = options.path || scriptPath() || 'plugin/trianglify';
+	if (!options.path.endsWith('/')) {
+		options.path += '/';
+	}
 	
 	// Cached references to DOM elements
 	var dom = {};
@@ -176,6 +179,21 @@ var RevealTrianglify = window.RevealTrianglify || (function(){
 		return path;
 	}
 
+	// polyfill
+	if (!String.prototype.startsWith) {
+		String.prototype.startsWith = function(searchString, position){
+			return this.substr(position || 0, searchString.length) === searchString;
+		};
+	}
+	if (!String.prototype.endsWith) {
+		String.prototype.endsWith = function(search, this_len) {
+			if (this_len === undefined || this_len > this.length) {
+				this_len = this.length;
+			}
+			return this.substring(this_len - search.length, this_len) === search;
+		};
+	}
+	
 	var ieVersion = function() {
 		var browser = /(msie) ([\w.]+)/.exec(window.navigator.userAgent.toLowerCase());
 		if (browser && browser[1] === "msie") {
